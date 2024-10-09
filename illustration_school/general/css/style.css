@@ -1,0 +1,103 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP");
+body {
+    font-family: "Noto Sans JP", sans-serif;
+    width: 90%;
+    margin: 20px auto;
+}
+
+h2{
+    margin: 0;
+    font-size: 25px;
+}
+
+h3{
+    font-size: 23px;
+}
+
+/*ボタン共通設定*/
+a{
+    text-decoration: none;
+}
+
+*[class*="button-blue"]{
+    color: #fff;
+    background-color: #00B0F0;
+    border: 2px solid #156082;
+}
+
+*[class*="button-red"]{
+    color: #fff;
+    background-color: #E97132;
+    border: 2px solid #80350E;
+}
+
+*[class*="button-navy"]{
+    color: #fff;
+    background-color: #0070C0;
+    border: 2px solid #0b3446;
+}
+
+*[class*="button-white"]{
+    color: #000;
+    background-color: #fff;
+    border: 2px solid #000;
+}
+
+*[class*="button-w-blue"]{
+    color: #0070C0;
+    background-color: #fff;
+    border: 2px solid #0070C0;
+}
+
+*[class*="button-w-red"]{
+    color: red;
+    background-color: #fff;
+    border: 2px solid red;
+}
+
+/*テーブル共通設定*/
+table{
+    border-collapse: collapse;
+    border-color: #156082;
+    width: 100%;
+    font-size: 19px;
+}
+
+tr[class*="table-heading"]{
+    background-color: #00B0F0;
+    color: #fff;
+    font-weight: bold;
+}
+table th,
+table td{
+    padding: 5px 0;
+}
+
+tr[class*="table-data"]{
+    background-color: #ecfaff;
+}
+
+/*ページ上部*/
+.page-top-area{
+    display: flex;
+}
+
+.page-top-area .page-title{
+    width: 50%;
+}
+
+.page-top-area .top-buttons{
+    width: 50%;
+    text-align: right;
+}
+
+.top-buttons a{
+    text-align: center;
+}
+
+/*フォーム設定*/
+.form-button-area{
+    margin: 100px 0;
+    text-align: end;
+}
