@@ -24,6 +24,106 @@ get_header(); ?>
 
 			do_action( 'arkhe_end_front_main' );
 		?>
+
+		<!-- お知らせ表示 -->
+		<div class="notice-area-back">
+			<div class="notice-area">
+				<?php
+				$args = array(
+					'post_type' => 'notice', 	//カスタム投稿タイプ名
+					'posts_per_page' => 3 		//取得する投稿の件数
+				);
+
+				$my_query = new WP_Query( $args );
+				?>
+
+				<?php 
+				//マグネット番号用変数
+				$magnum = 0;
+				while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+					<div class="notices">
+						<?php 
+						//画像表示
+						if ( has_post_thumbnail() ) : ?>
+							<a href="<?php the_permalink(); ?>">
+								<!-- マグネット表示 -->
+								<div class="magnet-area">
+									<?php
+									echo '<img class="magnet-'. $magnum .'" src="'. get_stylesheet_directory_uri() .'/assets/img/magnet_'.$magnum.'.png'.'" />';
+									$magnum++;
+									echo '<img class="magnet-'. $magnum .'" src="'. get_stylesheet_directory_uri() .'/assets/img/magnet_'.$magnum.'.png'.'" />';
+									$magnum++;
+									the_post_thumbnail( 'thumbnail' ); 
+									?>
+								</div>
+							</a>
+						<?php 
+						endif; ?>
+						<?php 
+						//お知らせタイトル ?>
+						<a href="<?php the_permalink(); ?>">
+							<?php the_title(); ?>
+						</a>
+						<?php
+						//投稿時間 ?>
+						<p>
+							<?php the_time( get_option( 'date_format' ) ); ?>
+						</p>
+					</div>
+				<?php endwhile; ?>
+
+				<?php wp_reset_postdata(); ?>
+			</div>
+		</div>
+	
+
+		<!-- 授業表示 -->
+		<div class="notice-area-back">
+			<div class="notice-area">
+				<?php
+				$args = array(
+					'post_type' => 'lesson', 	//カスタム投稿タイプ名
+					'posts_per_page' => 4 		//取得する投稿の件数
+				);
+
+				$my_query = new WP_Query( $args );
+				?>
+
+				<?php 
+				//マグネット番号用変数
+				$magnum = 0;
+				while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+					<div class="notices">
+						<?php 
+						//画像表示
+						if ( has_post_thumbnail() ) : ?>
+							<a href="<?php the_permalink(); ?>">
+								<!-- マグネット表示 -->
+								<div class="magnet-area">
+									<?php
+									the_post_thumbnail( 'thumbnail' ); 
+									?>
+								</div>
+							</a>
+						<?php 
+						endif; ?>
+						<?php 
+						//お知らせタイトル ?>
+						<a href="<?php the_permalink(); ?>">
+							<?php the_title(); ?>
+						</a>
+						<?php
+						//投稿時間 ?>
+						<p>
+							<?php the_time( get_option( 'date_format' ) ); ?>
+						</p>
+					</div>
+				<?php endwhile; ?>
+
+				<?php wp_reset_postdata(); ?>
+			</div>
+		</div>
+		
 	</div>
 </main>
 <?php

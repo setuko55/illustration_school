@@ -138,3 +138,65 @@ tr[class*="table-data"]{
     margin: 100px 0;
     text-align: end;
 }
+
+
+/*TOPページ*/
+
+/*お知らせ*/
+
+.notice-area-back{
+    background-image: url(../../assets/img/Side_Kokuban.png);
+    background-size: cover;
+    height: 788px;
+}
+
+.notice-area{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 100%;
+}
+
+.notices {
+    width: 30%;
+    text-align: center;
+    background-color: #fff;
+    margin: 10px;
+}
+
+.notice-area img{
+    width: 100%;
+}
+
+.magnet-area{
+    position: relative;
+
+}
+
+.magnet-0{
+    left: -2px;
+    top: -8px;
+}
+.magnet-1{
+    right: 9px;
+    top: 8px;
+}
+.magnet-2{
+    left: 0;
+}
+.magnet-3{
+    right: -15px;
+    top: -5px;
+}
+.magnet-4{
+    left: 0;
+    top: -5px;
+}
+.magnet-5{
+    right: 10px;
+}
+
+img[class*="magnet-"]{
+    width: 13%;
+    position: absolute;
+}
