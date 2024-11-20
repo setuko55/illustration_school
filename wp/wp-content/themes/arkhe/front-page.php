@@ -26,8 +26,9 @@ get_header(); ?>
 		?>
 
 		<!-- お知らせ表示 -->
-		<div class="notice-area-back">
-			<div class="notice-area">
+		<div class="top-content-area-back">
+			<h2 class="top-h2">お知らせ一覧</h2>
+			<div class="top-content-area">
 				<?php
 				$args = array(
 					'post_type' => 'notice', 	//カスタム投稿タイプ名
@@ -41,11 +42,11 @@ get_header(); ?>
 				//マグネット番号用変数
 				$magnum = 0;
 				while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
-					<div class="notices">
+					<div class="top-content" id="notices">
 						<?php 
 						//画像表示
 						if ( has_post_thumbnail() ) : ?>
-							<a href="<?php the_permalink(); ?>">
+							<a href="<?php the_permalink(); ?>" class="notice-link">
 								<!-- マグネット表示 -->
 								<div class="magnet-area">
 									<?php
@@ -78,8 +79,9 @@ get_header(); ?>
 	
 
 		<!-- 授業表示 -->
-		<div class="notice-area-back">
-			<div class="notice-area">
+		<div class="top-content-area-back">
+			<h2 class="top-h2">授業一覧</h2>
+			<div class="top-content-area">
 				<?php
 				$args = array(
 					'post_type' => 'lesson', 	//カスタム投稿タイプ名
@@ -93,7 +95,7 @@ get_header(); ?>
 				//マグネット番号用変数
 				$magnum = 0;
 				while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
-					<div class="notices">
+					<div class="top-content" id="lesson">
 						<?php 
 						//画像表示
 						if ( has_post_thumbnail() ) : ?>

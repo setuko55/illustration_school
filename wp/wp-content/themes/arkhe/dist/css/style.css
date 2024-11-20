@@ -52,6 +52,26 @@ h3{
     font-size: 23px;
 }
 
+/*TOPページ表示設定*/
+.wp-block-image img:has(#main_content){
+    max-width: none;
+    width: 100%;
+}
+
+.l-content__body:has(#main_content){
+    margin: 0px;
+}
+
+.l-container:has(#main_content){
+    margin: 0px;
+    padding: 0px;
+    max-width: 100%;
+}
+
+#main_content{
+    max-width: 100%;
+}
+
 /*ボタン共通設定*/
 a{
     text-decoration: none;
@@ -141,36 +161,45 @@ tr[class*="table-data"]{
 
 
 /*TOPページ*/
+.top-h2{
+    color: white;
+    position: relative;
+    top: 10%;
+    left: 10%;
+    font-size: 30px;;
+}
 
 /*お知らせ*/
 
-.notice-area-back{
+.top-content-area-back{
     background-image: url(../../assets/img/Side_Kokuban.png);
     background-size: cover;
-    height: 788px;
+    height: 700px;
 }
 
-.notice-area{
+.top-content-area{
     display: flex;
     justify-content:center;
     align-items: center;
     height: 100%;
+    max-width: 70%;
+    margin: auto;
 }
 
-.notices {
+.top-content {
     width: 30%;
+    max-width: 300px;
     text-align: center;
     background-color: #fff;
     margin: 10px;
 }
 
-.notice-area img{
+.top-content-area img{
     width: 100%;
 }
 
 .magnet-area{
     position: relative;
-
 }
 
 .magnet-0{
@@ -199,4 +228,13 @@ tr[class*="table-data"]{
 img[class*="magnet-"]{
     width: 13%;
     position: absolute;
+}
+
+/*授業*/
+#lesson {
+    border-radius: 10px;
+}
+
+#lesson img{
+    border-radius: 10px 10px 0px 0px;
 }
