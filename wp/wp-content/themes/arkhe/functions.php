@@ -114,7 +114,6 @@ class Arkhe extends \Arkhe_Theme\Data {
 	}
 }
 
-
 /**
  * Start!
  */

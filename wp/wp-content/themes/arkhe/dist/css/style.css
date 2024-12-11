@@ -169,6 +169,27 @@ tr[class*="table-data"]{
     font-size: 30px;;
 }
 
+.top-image-area{
+    display: flex;
+}
+
+.top-image{
+    width: 100%;
+}
+
+/*コンテンツ表示系共通*/
+.date-time{
+    font-size: small;
+    text-align: end;
+    margin: 3px 5px;
+}
+
+.content-title{
+    font-size: 17px;
+    color: #0869c3;
+    font-weight: bold;
+}
+
 /*お知らせ*/
 
 .top-content-area-back{
@@ -237,4 +258,6 @@ img[class*="magnet-"]{
 
 #lesson img{
     border-radius: 10px 10px 0px 0px;
+    height: 160px;
+    object-fit:cover;
 }

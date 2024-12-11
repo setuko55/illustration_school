@@ -2,7 +2,9 @@
 /**
  * フロントページテンプレート
  */
-get_header(); ?>
+get_header(); 
+require_once get_template_directory() . '/template-parts/view/contentView.php';
+?>
 
 <main <?php Arkhe::main_attrs(); ?>>
 	<div <?php Arkhe::main_body_attrs(); ?>>
@@ -26,6 +28,9 @@ get_header(); ?>
 		?>
 
 		<!-- お知らせ表示 -->
+		<div class="top-image-area">
+			<img class="top-image" src="<?= get_stylesheet_directory_uri() .'/assets/img/kousya.png'?>" alt="">
+		</diV>
 		<div class="top-content-area-back">
 			<h2 class="top-h2">お知らせ一覧</h2>
 			<div class="top-content-area">
@@ -36,44 +41,9 @@ get_header(); ?>
 				);
 
 				$my_query = new WP_Query( $args );
-				?>
 
-				<?php 
-				//マグネット番号用変数
-				$magnum = 0;
-				while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
-					<div class="top-content" id="notices">
-						<?php 
-						//画像表示
-						if ( has_post_thumbnail() ) : ?>
-							<a href="<?php the_permalink(); ?>" class="notice-link">
-								<!-- マグネット表示 -->
-								<div class="magnet-area">
-									<?php
-									echo '<img class="magnet-'. $magnum .'" src="'. get_stylesheet_directory_uri() .'/assets/img/magnet_'.$magnum.'.png'.'" />';
-									$magnum++;
-									echo '<img class="magnet-'. $magnum .'" src="'. get_stylesheet_directory_uri() .'/assets/img/magnet_'.$magnum.'.png'.'" />';
-									$magnum++;
-									the_post_thumbnail( 'thumbnail' ); 
-									?>
-								</div>
-							</a>
-						<?php 
-						endif; ?>
-						<?php 
-						//お知らせタイトル ?>
-						<a href="<?php the_permalink(); ?>">
-							<?php the_title(); ?>
-						</a>
-						<?php
-						//投稿時間 ?>
-						<p>
-							<?php the_time( get_option( 'date_format' ) ); ?>
-						</p>
-					</div>
-				<?php endwhile; ?>
-
-				<?php wp_reset_postdata(); ?>
+				//コンテンツの表示
+				contentView('notice', $my_query); ?>
 			</div>
 		</div>
 	
@@ -89,40 +59,10 @@ get_header(); ?>
 				);
 
 				$my_query = new WP_Query( $args );
+				//コンテンツの表示
+				contentView('nomal', $my_query);
 				?>
-
-				<?php 
-				//マグネット番号用変数
-				$magnum = 0;
-				while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
-					<div class="top-content" id="lesson">
-						<?php 
-						//画像表示
-						if ( has_post_thumbnail() ) : ?>
-							<a href="<?php the_permalink(); ?>">
-								<!-- マグネット表示 -->
-								<div class="magnet-area">
-									<?php
-									the_post_thumbnail( 'thumbnail' ); 
-									?>
-								</div>
-							</a>
-						<?php 
-						endif; ?>
-						<?php 
-						//お知らせタイトル ?>
-						<a href="<?php the_permalink(); ?>">
-							<?php the_title(); ?>
-						</a>
-						<?php
-						//投稿時間 ?>
-						<p>
-							<?php the_time( get_option( 'date_format' ) ); ?>
-						</p>
-					</div>
-				<?php endwhile; ?>
-
-				<?php wp_reset_postdata(); ?>
+				
 			</div>
 		</div>
 		
